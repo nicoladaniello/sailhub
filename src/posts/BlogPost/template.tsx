@@ -1,6 +1,7 @@
 import * as React from "react";
 import PageSection from "../../components/components/PageSection";
 import { Row, Col } from "reactstrap";
+import RecentPostsWidget from "./widgets/recentPosts";
 
 export interface BlogPostTemplateProps {
   data: any;
@@ -24,12 +25,16 @@ const BlogPostTemplate: React.SFC<BlogPostTemplateProps> = ({ data }) => {
       </div>
       <hr />
       <Row className="justify-content-center">
+        <Col md="3" />
         <Col
           md="6"
           sm="8"
           xs="12"
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <Col md="3">
+          <RecentPostsWidget />
+        </Col>
       </Row>
     </PageSection>
   );

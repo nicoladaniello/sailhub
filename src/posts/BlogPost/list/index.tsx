@@ -1,5 +1,4 @@
 import React from "react";
-import BlogPostCardTemplate from "../card/template";
 import { Query, QueryResult } from "react-apollo";
 import { getBlogPosts } from "../queries";
 import BlogPostListTemplate from "./template";

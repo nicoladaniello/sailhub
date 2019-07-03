@@ -50,6 +50,23 @@ export const getBlogPosts = gql`
     }
   }
 `;
+/**
+ * Get a Blog Posts data: useful for lists
+ */
+export const getBlogPostsTitles = gql`
+  query GET_BLOGPOSTS($first: Int) {
+    posts(first: $first) {
+      edges {
+        node {
+          id
+          postId
+          title
+          uri
+        }
+      }
+    }
+  }
+`;
 
 /**
  * Get a Blog Post exerpt data by its uri: useful for cards
