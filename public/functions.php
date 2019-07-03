@@ -66,3 +66,10 @@ function ws_get_images_urls( $object, $field_name, $request ) {
         'large'  => $large_url,
     );
 }
+
+
+function register_navbar_menu() {
+    register_nav_menu('navbar-menu',__( 'Navbar Menu' ));
+  }
+
+add_action( 'init', 'register_navbar_menu' );
