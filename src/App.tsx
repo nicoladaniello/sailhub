@@ -6,9 +6,10 @@ import NotFound from "./components/pages/NotFound/NotFound";
 // import Page from "./components/pages/Page/Page";
 import Posts from "./components/pages/Posts/Posts";
 import Products from "./components/pages/Products/Products";
-import BlogPost from "./components/BlogPost/BlogPost";
+import BlogPost from "./posts/BlogPost/BlogPost";
 
 import "./App.scss";
+import BlogPostCard from "./posts/BlogPostCard/BlogPostCard";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/wordpress/" component={HomePage} />
+          <Route path="/wordpress/blog/card/:uri" component={BlogPostCard} />
           <Route path="/wordpress/blog/:uri" component={BlogPost} />
           <Route path="/wordpress/destinations/:slug" component={Posts} />
           <Route exact path="/wordpress/products/" component={Products} />

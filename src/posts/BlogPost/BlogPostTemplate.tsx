@@ -1,5 +1,5 @@
 import * as React from "react";
-import PageSection from "../molecules/PageSection";
+import PageSection from "../../components/molecules/PageSection";
 import { Row, Col } from "reactstrap";
 
 export interface BlogPostTemplateProps {
