@@ -1,6 +1,6 @@
 import React from "react";
-import HeroImg from "../../../img/hero.jpg";
-import PageHeader from "../../molecules/PageHeader";
+import HeroImg from "../../../images/hero.jpg";
+import PageHeader from "../../components/PageHeader";
 
 export interface HomeHeaderProps {}
 
