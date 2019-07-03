@@ -17,6 +17,7 @@ import {
   InputGroup,
   InputGroupAddon
 } from "reactstrap";
+import NavbarMenu from "./NavbarMenu";
 
 export interface SHNavbarProps {}
 
@@ -56,7 +57,8 @@ class SHNavbar extends React.Component<SHNavbarProps, SHNavbarState> {
             </InputGroup>
           </Form>
           <Nav className="ml-auto" navbar>
-            <UncontrolledDropdown nav inNavbar>
+            <NavbarMenu />
+            {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 How it works
               </DropdownToggle>
@@ -85,7 +87,7 @@ class SHNavbar extends React.Component<SHNavbarProps, SHNavbarState> {
             </UncontrolledDropdown>
             <NavItem>
               <NavLink href="/components/">Contact</NavLink>
-            </NavItem>
+            </NavItem> */}
           </Nav>
           <Nav className="ml-auto" navbar>
             <NavItem>
