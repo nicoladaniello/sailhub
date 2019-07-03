@@ -27,6 +27,7 @@ import ProductService, {
 } from "../../../services/api/productService";
 import ProductCardList from "../../organisms/ProductCardList";
 import { Row, Col } from "reactstrap";
+import BlogPostList from "../../../posts/BlogPost/list";
 
 library.add(faMapMarkerAlt, faStar, faStarHalf, faShip, faCheck);
 
@@ -87,6 +88,11 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
             </Row>
           </PageSection>
         ))}
+
+        <PageSection>
+          <SectionHeading title="Recent Posts" />
+          <BlogPostList />
+        </PageSection>
 
         <PageSection>
           <SectionHeading title="Today's top boat excursions in La Maddalena" />

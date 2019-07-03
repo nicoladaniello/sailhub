@@ -6,10 +6,10 @@ import NotFound from "./components/pages/NotFound/NotFound";
 // import Page from "./components/pages/Page/Page";
 import Posts from "./components/pages/Posts/Posts";
 import Products from "./components/pages/Products/Products";
-import BlogPost from "./posts/BlogPost/BlogPost";
+import BlogPost from "./posts/BlogPost";
 
 import "./App.scss";
-import BlogPostCard from "./posts/BlogPostCard/BlogPostCard";
+import BlogPostCard from "./posts/BlogPost/card";
 
 const App: React.FC = () => {
   return (

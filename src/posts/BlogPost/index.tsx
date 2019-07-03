@@ -1,7 +1,7 @@
 import React from "react";
 import { Query, QueryResult } from "react-apollo";
 import { getBlogPost } from "./queries";
-import BlogPostTemplate from "./BlogPostTemplate";
+import BlogPostTemplate from "./template";
 
 export interface BlogPostProps {
   match: any;

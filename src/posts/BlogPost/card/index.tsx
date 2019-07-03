@@ -1,7 +1,7 @@
 import React from "react";
 import { Query, QueryResult } from "react-apollo";
-import { getBlogPostExerpt } from "./queries";
-import BlogPostCardTemplate from "./BlogPostCardTemplate";
+import { getBlogPostExerpt } from "../queries";
+import BlogPostCardTemplate from "./template";
 
 export interface BlogPostCardProps {
   match: any;
