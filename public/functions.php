@@ -73,3 +73,4 @@ function register_navbar_menu() {
   }
 
 add_action( 'init', 'register_navbar_menu' );
+remove_action('template_redirect', 'redirect_canonical');

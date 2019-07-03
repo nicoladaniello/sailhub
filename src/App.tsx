@@ -6,10 +6,9 @@ import NotFound from "./components/pages/NotFound/NotFound";
 // import Page from "./components/pages/Page/Page";
 import Posts from "./components/pages/Posts/Posts";
 import Products from "./components/pages/Products/Products";
-import BlogPost from "./components/posts/BlogPost";
+import BlogPost from "./components/BlogPost/BlogPost";
 
 import "./App.scss";
-import BlogPostCard from "./components/molecules/BlogPostCard";
 
 const App: React.FC = () => {
   return (
@@ -18,19 +17,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/wordpress/" component={HomePage} />
-          <Route
-            path="/wordpress/blog/:postId"
-            render={props => (
-              <BlogPost {...props}>
-                <BlogPostCard />
-              </BlogPost>
-            )}
-          />
-          <Route
-            exact
-            path="/wordpress/destinations/"
-            render={props => <Posts {...props} category="destinations" />}
-          />
+          <Route path="/wordpress/blog/:uri" component={BlogPost} />
           <Route path="/wordpress/destinations/:slug" component={Posts} />
           <Route exact path="/wordpress/products/" component={Products} />
           <Route path="/wordpress/products/:slug" component={Products} />
