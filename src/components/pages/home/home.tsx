@@ -1,5 +1,5 @@
 import * as React from "react";
-import HomeHeader from "./HomeHeader";
+import HomeHeader from "./header";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
