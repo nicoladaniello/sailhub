@@ -20,8 +20,8 @@ const CategoryTemplate: React.SFC<CategoryTemplateProps> = ({ data }) => {
       <hr />
       <Row className="justify-content-center">
         <Col md="8" sm="8" xs="12">
-          {posts.nodes.map((post: any) => (
-            <BlogPostExcerptTemplate data={post} />
+          {posts.nodes.map((post: any, i: any) => (
+            <BlogPostExcerptTemplate key={i} data={post} />
           ))}
         </Col>
         <Col md="4">

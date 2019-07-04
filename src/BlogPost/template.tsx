@@ -16,6 +16,7 @@ const BlogPostTemplate: React.SFC<BlogPostTemplateProps> = ({ data }) => {
         {featuredImage && (
           <img
             src={featuredImage.sourceUrl}
+            alt={title}
             style={{ width: "100%", height: "40vh", objectFit: "cover" }}
           />
         )}

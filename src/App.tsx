@@ -6,7 +6,7 @@ import NotFound from "./components/pages/NotFound";
 import BlogPost from "./BlogPost";
 
 import "./App.scss";
-import Category from "./category";
+import Category from "./Category";
 
 const App: React.FC = () => {
   return (
