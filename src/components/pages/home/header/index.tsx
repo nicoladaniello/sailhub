@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Query, QueryResult } from "react-apollo";
 import HomeHeaderTemplate from "./template";
-import { getGeneralSettings } from "./queries";
+import { getGeneralSettings } from "../queries";
 
 export interface HomeHeaderProps {}
 

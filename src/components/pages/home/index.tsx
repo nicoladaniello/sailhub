@@ -9,9 +9,9 @@ import {
   faShip,
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
-import PageSection from "../../components/PageSection";
-import SectionHeading from "../../components/SectionHeading";
-import BlogPostList from "../../../posts/BlogPost/list";
+import PageSection from "../../partials/PageSection";
+import SectionHeading from "../../partials/SectionHeading";
+import BlogPostList from "../../../BlogPost/list";
 
 library.add(faMapMarkerAlt, faStar, faStarHalf, faShip, faCheck);
 

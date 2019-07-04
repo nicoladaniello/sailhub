@@ -1,5 +1,5 @@
 import * as React from "react";
-import PageHeader from "../../../components/PageHeader";
+import PageHeader from "../../../partials/PageHeader";
 import HeroImg from "../../../../images/hero.jpg";
 
 export interface HomeHeaderTemplateProps {

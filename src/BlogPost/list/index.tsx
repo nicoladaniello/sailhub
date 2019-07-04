@@ -1,13 +1,13 @@
 import React from "react";
 import { Query, QueryResult } from "react-apollo";
-import { getBlogPosts } from "../queries";
+import { getBlogPostList } from "../queries";
 import BlogPostListTemplate from "./template";
 
 export interface BlogPostListProps {}
 
 const BlogPostList: React.SFC<BlogPostListProps> = () => {
   return (
-    <Query query={getBlogPosts}>
+    <Query query={getBlogPostList}>
       {({ data, loading, error }: QueryResult) => {
         if (error) console.log(error);
         if (error) return <div>error!</div>;

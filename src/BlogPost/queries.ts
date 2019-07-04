@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 /**
- * Get a Blog Post data by its uri: useful for Pages
+ * Get a BlogPost data by its uri: useful for Pages
  */
 export const getBlogPost = gql`
   query GET_BLOGPOST($uri: String!) {
@@ -26,11 +26,33 @@ export const getBlogPost = gql`
 `;
 
 /**
- * Get a Blog Posts data: useful for lists
+ * Get a BlogPost excerpt data by its uri: useful for cards
  */
-export const getBlogPosts = gql`
-  query GET_BLOGPOSTS {
-    posts {
+export const getBlogPostExerpt = gql`
+  query GET_BLOGPOST_EXERPT($uri: String!) {
+    postBy(uri: $uri) {
+      id
+      postId
+      title
+      excerpt
+      date
+      uri
+      author {
+        name
+      }
+      featuredImage {
+        sourceUrl
+      }
+    }
+  }
+`;
+
+/**
+ * Get a BlogPosts list: useful for lists
+ */
+export const getBlogPostList = gql`
+  query GET_BLOGPOST_LIST($first: Int) {
+    posts(first: $first) {
       edges {
         node {
           id
@@ -50,10 +72,11 @@ export const getBlogPosts = gql`
     }
   }
 `;
+
 /**
- * Get a Blog Posts data: useful for lists
+ * Get a BlogPosts titles list: useful for widgets
  */
-export const getBlogPostsTitles = gql`
+export const getBlogPostTitleList = gql`
   query GET_BLOGPOSTS($first: Int) {
     posts(first: $first) {
       edges {
@@ -63,28 +86,6 @@ export const getBlogPostsTitles = gql`
           title
           uri
         }
-      }
-    }
-  }
-`;
-
-/**
- * Get a Blog Post exerpt data by its uri: useful for cards
- */
-export const getBlogPostExerpt = gql`
-  query GET_BLOGPOST_EXERPT($uri: String!) {
-    postBy(uri: $uri) {
-      id
-      postId
-      title
-      excerpt
-      date
-      uri
-      author {
-        name
-      }
-      featuredImage {
-        sourceUrl
       }
     }
   }

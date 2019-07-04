@@ -7,25 +7,26 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  // UncontrolledDropdown,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem,
   Form,
   Input,
   Button,
   InputGroup,
   InputGroupAddon
 } from "reactstrap";
-import NavbarMenu from "./NavbarMenu";
+import NavbarMenu from "../menus/NavbarMenu";
+import { Link } from "react-router-dom";
 
-export interface SHNavbarProps {}
+export interface NavBarProps {}
 
-export interface SHNavbarProps {}
+export interface NavBarProps {}
 
-export interface SHNavbarState {}
+export interface NavBarState {}
 
-class SHNavbar extends React.Component<SHNavbarProps, SHNavbarState> {
+class NavBar extends React.Component<NavBarProps, NavBarState> {
   state = {
     isOpen: false
   };
@@ -39,8 +40,10 @@ class SHNavbar extends React.Component<SHNavbarProps, SHNavbarState> {
   render() {
     return (
       <Navbar color="white" light expand="md">
-        <NavbarBrand href="/">
-          SailHub <span className="text-primary">Sardinia</span>
+        <NavbarBrand>
+          <Link to="/wordpress/" className="text-dark">
+            SailHub <span className="text-primary">Sardinia</span>
+          </Link>
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
@@ -102,4 +105,4 @@ class SHNavbar extends React.Component<SHNavbarProps, SHNavbarState> {
   }
 }
 
-export default SHNavbar;
+export default NavBar;

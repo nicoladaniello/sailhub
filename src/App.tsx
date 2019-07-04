@@ -1,21 +1,21 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import SHNavbar from "./components/menus/SHNavbar";
-import HomePage from "./components/pages/home/home";
-import NotFound from "./components/pages/NotFound/NotFound";
-import BlogPost from "./posts/BlogPost";
+import NavBar from "./components/Navbar";
+import HomePage from "./components/pages/home";
+import NotFound from "./components/pages/NotFound";
+import BlogPost from "./BlogPost";
 
 import "./App.scss";
-import BlogPostCard from "./posts/BlogPost/card";
+import Category from "./category";
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <SHNavbar />
       <BrowserRouter>
+        <NavBar />
         <Switch>
           <Route exact path="/wordpress/" component={HomePage} />
-          <Route path="/wordpress/blog/card/:uri" component={BlogPostCard} />
+          <Route path="/wordpress/blog/category/:uri" component={Category} />
           <Route path="/wordpress/blog/:uri" component={BlogPost} />
           {/* <Route path="/wordpress/:slug" component={Page} /> */}
           <Route render={props => <NotFound {...props} />} />

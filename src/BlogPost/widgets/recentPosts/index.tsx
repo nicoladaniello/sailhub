@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Query, QueryResult } from "react-apollo";
-import { getBlogPostsTitles } from "../../queries";
+import { getBlogPostTitleList } from "../../queries";
 import RecentPostsWidgetTemplate from "./template";
 
 export interface RecentPostsWidgetProps {}
 
 const RecentPostsWidget: React.SFC<RecentPostsWidgetProps> = () => {
   return (
-    <Query query={getBlogPostsTitles} variables={{ first: 5 }}>
+    <Query query={getBlogPostTitleList} variables={{ first: 5 }}>
       {({ data, loading, error }: QueryResult) => {
         if (error) console.log(error);
         if (error) return <div>error!</div>;

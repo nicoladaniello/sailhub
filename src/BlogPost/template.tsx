@@ -1,7 +1,8 @@
 import * as React from "react";
-import PageSection from "../../components/components/PageSection";
+import PageSection from "../components/partials/PageSection";
 import { Row, Col } from "reactstrap";
 import RecentPostsWidget from "./widgets/recentPosts";
+import Categories from "../Category/widgets/CategoriesWidget";
 
 export interface BlogPostTemplateProps {
   data: any;
@@ -34,6 +35,7 @@ const BlogPostTemplate: React.SFC<BlogPostTemplateProps> = ({ data }) => {
         />
         <Col md="3">
           <RecentPostsWidget />
+          <Categories />
         </Col>
       </Row>
     </PageSection>
