@@ -1,33 +1,59 @@
-# SailHub Theme
+# SailHub
 
 ![SailHub home](https://github.com/nicoladaniello/sailhub/blob/master/prototypes/main.png)
 
-SailHub is a project for an OTA WordPress custom theme built with ReactJS and Bootstrap libraries, and backed by WordPress REST API.
+This is a personal project for an Online Travel Agency (OTA) website.
+The website is currently under development and may present some bugs.
 
-The theme is currently under construction and may present some bugs.
+## Why this project
+
+I made this project to experiment with new technologies such as _GraphQL_ and _Wordpress_, while practising some already known technologies like _React_ and _typescript_.
+
+### Technologies
+
+List of the main technologies used:
+
+#### Backend:
+
+- WordPress
+- WP-Travel
+- WP-GraphQL
+
+#### Frontend:
+
+- ReactJS
+- Typescript
+- Bootstrap v4
+- GraphQL (Apollo)
+
+#### Tools:
+
+- Figma (prototyping & design)
+- VScode
+- MAMP
+
+## Dev Log
+
+- [x] Implement blog - [x] posts - [x] categories - [ ] tags - [ ] comments
+- [ ] Implement destinations
+- [ ] Trips
 
 ## Getting Started
 
-### Requirements
+Instructions to run on **localhost**:
 
-To run on localhost:
+### Requirements:
 
-- XAMP
-- WordPress
+- (X)AMP
+- WordPress - WP-Travel - WP-GraphQL
 
 ### Installation
 
-Installation on localhost:
-
-- Install wordpress on your local machine and copy this repo in the **wp-content/themes** folder.
-- Activate the theme from the WP admin page.
-
-Lunch from terminal
-
-```
-$ cd sailhub/react-src
-$ npm start
-```
+1.  Install wordpress on your local machine and copy this repo in the `wp-content/themes` folder
+2.  Install dependencies: `npm i`
+3.  Follow the instructions for [create-react-wptheme](https://github.com/devloco/create-react-wptheme)
+4.  Run the theme with `npm start`
+5.  Activate the theme from the WP admin page.
 
 | ![footsy app](https://github.com/nicoladaniello/sailhub/blob/master/prototypes/home.png) | ![footsy app](https://github.com/nicoladaniello/sailhub/blob/master/prototypes/destination.png)
 
