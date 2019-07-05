@@ -1,14 +1,15 @@
-import * as React from "react";
+import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface RecentPostsWidgetTemplateProps {
-  list: any;
+  queryResult?: any;
 }
 
 const RecentPostsWidgetTemplate: React.SFC<RecentPostsWidgetTemplateProps> = ({
-  list
+  queryResult
 }) => {
+  const { edges: list } = queryResult.posts;
   return (
     <ListGroup>
       <div>
