@@ -7,11 +7,18 @@ import PostMeta from "./partials/PostMeta";
 import PostAuthor from "./partials/PostAuthor";
 
 export interface PostTemplateProps {
-  data: any;
+  queryResult?: any;
 }
 
-const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
-  const { title, author, date, featuredImage, content, categories } = data;
+const PostTemplate: React.SFC<PostTemplateProps> = ({ queryResult }) => {
+  const {
+    title,
+    author,
+    date,
+    featuredImage,
+    content,
+    categories
+  } = queryResult.postBy;
   return (
     <PageSection>
       <figure>

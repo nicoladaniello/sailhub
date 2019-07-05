@@ -9,7 +9,7 @@ const PostAuthor: React.SFC<PostAuthorProps> = ({ author }) => {
   return (
     <Media>
       <Media left href="/">
-        <Media object data-src="holder.js/64x64" alt={name} />
+        <Media object data-src="holder.js/64x64" alt={author.name} />
       </Media>
       <Media body>
         <h6 className="text-muted">Posted By:</h6>
