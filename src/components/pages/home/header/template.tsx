@@ -1,13 +1,15 @@
-import * as React from "react";
+import React from "react";
 import PageHeader from "../../../partials/PageHeader";
 import HeroImg from "../../../../images/hero.jpg";
 
 export interface HomeHeaderTemplateProps {
-  data: any;
+  queryResult?: any;
 }
 
-const HomeHeaderTemplate: React.SFC<HomeHeaderTemplateProps> = ({ data }) => {
-  const { title, description } = data;
+const HomeHeaderTemplate: React.SFC<HomeHeaderTemplateProps> = ({
+  queryResult
+}) => {
+  const { title, description } = queryResult.generalSettings;
   return (
     <PageHeader img={HeroImg}>
       <div className="w-100 text-center text-white">
