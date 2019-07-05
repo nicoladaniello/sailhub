@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Query, QueryResult } from "react-apollo";
+import Query from "../../../components/common/Query";
 import { getPostList, getPostsByCategory } from "../../queries";
 import PostCarouselWidgetTemplate from "./template";
 
@@ -24,16 +24,7 @@ const PostCarouselWidget: React.SFC<PostCarouselWidgetProps> = ({
 
   return (
     <Query query={query} variables={vars}>
-      {({ data, loading, error }: QueryResult) => {
-        console.log(data, error);
-        if (error) console.log(error);
-        if (error) return <div>error!</div>;
-        if (loading) return <div>loading...</div>;
-        if (!data) return <div>Nothing here...</div>;
-
-        const { edges: recentPosts } = data.posts;
-        return <PostCarouselWidgetTemplate title={title} list={recentPosts} />;
-      }}
+      <PostCarouselWidgetTemplate title={title} />
     </Query>
   );
 };

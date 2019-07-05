@@ -6,12 +6,13 @@ import { Row, Col } from "reactstrap";
 
 export interface PostCarouselWidgetTemplateProps {
   title: string;
-  list: any[];
+  queryResult?: any;
 }
 
 const PostCarouselWidgetTemplate: React.SFC<
   PostCarouselWidgetTemplateProps
-> = ({ title, list }) => {
+> = ({ title, queryResult }) => {
+  const { edges: list } = queryResult.posts;
   return (
     <PageSection>
       <SectionHeading title={title} />
