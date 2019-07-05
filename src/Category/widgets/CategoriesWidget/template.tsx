@@ -1,12 +1,15 @@
-import * as React from "react";
+import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface CategoriesTemplateProps {
-  list: any[];
+  queryResult?: any;
 }
 
-const CategoriesTemplate: React.SFC<CategoriesTemplateProps> = ({ list }) => {
+const CategoriesTemplate: React.SFC<CategoriesTemplateProps> = ({
+  queryResult
+}) => {
+  const { edges: list } = queryResult.categories;
   return (
     <ListGroup>
       <div>
