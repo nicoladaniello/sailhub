@@ -1,16 +1,16 @@
 import * as React from "react";
 import PageSection from "../../../components/partials/PageSection";
 import SectionHeading from "../../../components/partials/SectionHeading";
-import BlogPostCardTemplate from "../../card/template";
+import PostCardTemplate from "../../card/template";
 import { Row, Col } from "reactstrap";
 
-export interface BlogPostCarouselWidgetTemplateProps {
+export interface PostCarouselWidgetTemplateProps {
   title: string;
   list: any[];
 }
 
-const BlogPostCarouselWidgetTemplate: React.SFC<
-  BlogPostCarouselWidgetTemplateProps
+const PostCarouselWidgetTemplate: React.SFC<
+  PostCarouselWidgetTemplateProps
 > = ({ title, list }) => {
   return (
     <PageSection>
@@ -18,7 +18,7 @@ const BlogPostCarouselWidgetTemplate: React.SFC<
       <Row>
         {list.map(({ node: post }: any) => (
           <Col key={post.postId} md="2" sm="3" xs="6">
-            <BlogPostCardTemplate data={post} />
+            <PostCardTemplate data={post} />
           </Col>
         ))}
       </Row>
@@ -26,4 +26,4 @@ const BlogPostCarouselWidgetTemplate: React.SFC<
   );
 };
 
-export default BlogPostCarouselWidgetTemplate;
+export default PostCarouselWidgetTemplate;

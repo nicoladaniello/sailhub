@@ -1,14 +1,14 @@
 import * as React from "react";
 import { Query, QueryResult } from "react-apollo";
-import { getBlogPostList, getBlogPostsByCategory } from "../../queries";
-import BlogPostCarouselWidgetTemplate from "./template";
+import { getPostList, getPostsByCategory } from "../../queries";
+import PostCarouselWidgetTemplate from "./template";
 
-export interface BlogPostCarouselWidgetProps {
+export interface PostCarouselWidgetProps {
   title: string;
   categoryId?: number;
 }
 
-const BlogPostCarouselWidget: React.SFC<BlogPostCarouselWidgetProps> = ({
+const PostCarouselWidget: React.SFC<PostCarouselWidgetProps> = ({
   title,
   categoryId
 }) => {
@@ -16,10 +16,10 @@ const BlogPostCarouselWidget: React.SFC<BlogPostCarouselWidgetProps> = ({
   let vars = undefined;
 
   if (categoryId) {
-    query = getBlogPostsByCategory;
+    query = getPostsByCategory;
     vars = { catId: categoryId };
   } else {
-    query = getBlogPostList;
+    query = getPostList;
   }
 
   return (
@@ -32,12 +32,10 @@ const BlogPostCarouselWidget: React.SFC<BlogPostCarouselWidgetProps> = ({
         if (!data) return <div>Nothing here...</div>;
 
         const { edges: recentPosts } = data.posts;
-        return (
-          <BlogPostCarouselWidgetTemplate title={title} list={recentPosts} />
-        );
+        return <PostCarouselWidgetTemplate title={title} list={recentPosts} />;
       }}
     </Query>
   );
 };
 
-export default BlogPostCarouselWidget;
+export default PostCarouselWidget;

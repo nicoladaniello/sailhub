@@ -2,12 +2,12 @@ import * as React from "react";
 import { Badge } from "reactstrap";
 import { Link } from "react-router-dom";
 
-export interface BlogPostMetaProps {
+export interface PostMetaProps {
   date: string;
   categories: any;
 }
 
-const BlogPostMeta: React.SFC<BlogPostMetaProps> = ({ date, categories }) => {
+const PostMeta: React.SFC<PostMetaProps> = ({ date, categories }) => {
   return (
     <div className="post-meta">
       {categories.edges.map(({ node: category }: any) => (
@@ -25,4 +25,4 @@ const BlogPostMeta: React.SFC<BlogPostMetaProps> = ({ date, categories }) => {
   );
 };
 
-export default BlogPostMeta;
+export default PostMeta;

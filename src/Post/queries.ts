@@ -1,10 +1,10 @@
 import gql from "graphql-tag";
 
 /**
- * Get a BlogPost data by its uri: useful for Pages
+ * Get a Post data by its uri: useful for Pages
  */
-export const getBlogPost = gql`
-  query GET_BLOGPOST($uri: String!) {
+export const getPost = gql`
+  query getPost($uri: String!) {
     postBy(uri: $uri) {
       id
       postId
@@ -36,10 +36,10 @@ export const getBlogPost = gql`
 `;
 
 /**
- * Get a BlogPost excerpt data by its uri: useful for cards
+ * Get a Post excerpt data by its uri: useful for cards
  */
-export const getBlogPostExerpt = gql`
-  query GET_BLOGPOST_EXERPT($uri: String!) {
+export const getPostExerpt = gql`
+  query getPostExerpt($uri: String!) {
     postBy(uri: $uri) {
       id
       postId
@@ -58,10 +58,10 @@ export const getBlogPostExerpt = gql`
 `;
 
 /**
- * Get a BlogPosts list: useful for lists
+ * Get a Posts list: useful for lists
  */
-export const getBlogPostList = gql`
-  query GET_BLOGPOST_LIST($first: Int) {
+export const getPostList = gql`
+  query getPostList($first: Int) {
     posts(first: $first) {
       edges {
         node {
@@ -86,8 +86,8 @@ export const getBlogPostList = gql`
 /**
  *
  */
-export const getBlogPostsByCategory = gql`
-  query GET_BLOGPOSTS_BY_CATEGORY($catId: Int!) {
+export const getPostsByCategory = gql`
+  query getPostsByCategory($catId: Int!) {
     posts(where: { categoryId: $catId }) {
       edges {
         node {
@@ -110,10 +110,10 @@ export const getBlogPostsByCategory = gql`
 `;
 
 /**
- * Get a BlogPosts titles list: useful for widgets
+ * Get a Posts titles list: useful for widgets
  */
-export const getBlogPostTitleList = gql`
-  query GET_BLOGPOSTS($first: Int) {
+export const getPostTitleList = gql`
+  query getPostTitleList($first: Int) {
     posts(first: $first) {
       edges {
         node {

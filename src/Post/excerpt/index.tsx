@@ -1,13 +1,12 @@
 import * as React from "react";
 import { Query, QueryResult } from "react-apollo";
-import { getBlogPostTitleList } from "../../queries";
-import RecentPostsWidgetTemplate from "./template";
+import { getPostTitleList } from "../queries";
 
-export interface RecentPostsWidgetProps {}
+export interface PostExcerptProps {}
 
-const RecentPostsWidget: React.SFC<RecentPostsWidgetProps> = () => {
+const PostExcerpt: React.SFC<PostExcerptProps> = () => {
   return (
-    <Query query={getBlogPostTitleList} variables={{ first: 5 }}>
+    <Query query={getPostTitleList} variables={{ first: 5 }}>
       {({ data, loading, error }: QueryResult) => {
         if (error) console.log(error);
         if (error) return <div>error!</div>;
@@ -16,10 +15,10 @@ const RecentPostsWidget: React.SFC<RecentPostsWidgetProps> = () => {
 
         const { edges: recentPosts } = data.posts;
         console.log(recentPosts);
-        return <RecentPostsWidgetTemplate list={recentPosts} />;
+        return;
       }}
     </Query>
   );
 };
 
-export default RecentPostsWidget;
+export default PostExcerpt;

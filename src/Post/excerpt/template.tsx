@@ -1,16 +1,15 @@
 import * as React from "react";
-import { Card, CardBody, CardTitle, CardImg, CardText } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 import { Link } from "react-router-dom";
 
-export interface BlogPostCardTemplateProps {
-  data?: any;
+export interface PostExcerptTemplateProps {
+  data: any;
 }
 
-const BlogPostCardTemplate: React.SFC<BlogPostCardTemplateProps> = ({
-  data
-}) => {
-  const { title, date, uri, featuredImage } = data;
-  return data ? (
+const PostExcerptTemplate: React.SFC<PostExcerptTemplateProps> = ({ data }) => {
+  const { title, date, uri, featuredImage, excerpt } = data;
+
+  return (
     <Card className="cardcap">
       {featuredImage && (
         <CardImg
@@ -24,12 +23,13 @@ const BlogPostCardTemplate: React.SFC<BlogPostCardTemplateProps> = ({
         <CardTitle>
           <Link to={`/wordpress/blog/${uri}`}>{title}</Link>
         </CardTitle>
-        <CardText className="small">
+        <CardText dangerouslySetInnerHTML={{ __html: excerpt }} />
+        <CardText className="small text-muted">
           posted on: {new Date(date).toLocaleDateString()}
         </CardText>
       </CardBody>
     </Card>
-  ) : null;
+  );
 };
 
-export default BlogPostCardTemplate;
+export default PostExcerptTemplate;

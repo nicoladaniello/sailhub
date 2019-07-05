@@ -1,17 +1,16 @@
 import * as React from "react";
 import PageSection from "../components/partials/PageSection";
-import { Row, Col, Badge } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import RecentPostsWidget from "./widgets/recentPosts";
 import Categories from "../Category/widgets/CategoriesWidget";
-import { Link } from "react-router-dom";
-import BlogPostMeta from "./partials/PostMeta";
+import PostMeta from "./partials/PostMeta";
 import PostAuthor from "./partials/PostAuthor";
 
-export interface BlogPostTemplateProps {
+export interface PostTemplateProps {
   data: any;
 }
 
-const BlogPostTemplate: React.SFC<BlogPostTemplateProps> = ({ data }) => {
+const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
   const { title, author, date, featuredImage, content, categories } = data;
   return (
     <PageSection>
@@ -25,7 +24,7 @@ const BlogPostTemplate: React.SFC<BlogPostTemplateProps> = ({ data }) => {
         )}
       </figure>
       <div className="text-center">
-        <BlogPostMeta date={date} categories={categories} />
+        <PostMeta date={date} categories={categories} />
         <h1>{title}</h1>
       </div>
       <hr />
@@ -45,4 +44,4 @@ const BlogPostTemplate: React.SFC<BlogPostTemplateProps> = ({ data }) => {
   );
 };
 
-export default BlogPostTemplate;
+export default PostTemplate;
