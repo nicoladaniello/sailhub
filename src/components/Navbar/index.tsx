@@ -17,7 +17,7 @@ import {
   InputGroup,
   InputGroupAddon
 } from "reactstrap";
-import NavbarMenu from "../menus/NavbarMenu";
+import NavbarMenu from "../menus/NavbarMenu/index";
 
 export interface NavBarProps {}
 
