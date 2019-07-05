@@ -6,11 +6,13 @@ import Categories from "./widgets/CategoriesWidget";
 import PostExcerptTemplate from "../Post/excerpt/template";
 
 export interface CategoryTemplateProps {
-  data: any;
+  queryResult?: any;
 }
 
-const CategoryTemplate: React.SFC<CategoryTemplateProps> = ({ data }) => {
-  const { name, posts } = data.node;
+const CategoryTemplate: React.SFC<CategoryTemplateProps> = ({
+  queryResult
+}) => {
+  const { name, posts } = queryResult.categories.edges[0].node;
 
   return (
     <PageSection>
