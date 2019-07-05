@@ -9,9 +9,7 @@ import {
   faShip,
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
-import PageSection from "../../partials/PageSection";
-import SectionHeading from "../../partials/SectionHeading";
-import BlogPostList from "../../../BlogPost/list";
+import BlogPostCarouselWidget from "../../../BlogPost/widgets/carousel";
 
 library.add(faMapMarkerAlt, faStar, faStarHalf, faShip, faCheck);
 
@@ -27,10 +25,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
       <div id="HomePage">
         <HomeHeader />
 
-        <PageSection>
-          <SectionHeading title="Recent Posts" />
-          <BlogPostList />
-        </PageSection>
+        <BlogPostCarouselWidget title="Destinations Posts" categoryId={18} />
       </div>
     );
   }

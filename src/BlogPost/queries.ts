@@ -74,6 +74,32 @@ export const getBlogPostList = gql`
 `;
 
 /**
+ *
+ */
+export const getBlogPostsByCategory = gql`
+  query GET_BLOGPOSTS_BY_CATEGORY($catId: Int!) {
+    posts(where: { categoryId: $catId }) {
+      edges {
+        node {
+          id
+          postId
+          title
+          excerpt
+          date
+          uri
+          author {
+            name
+          }
+          featuredImage {
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
  * Get a BlogPosts titles list: useful for widgets
  */
 export const getBlogPostTitleList = gql`
