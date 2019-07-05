@@ -21,6 +21,16 @@ export const getBlogPost = gql`
       featuredImage {
         sourceUrl
       }
+      categories {
+        edges {
+          node {
+            id
+            categoryId
+            slug
+            name
+          }
+        }
+      }
     }
   }
 `;

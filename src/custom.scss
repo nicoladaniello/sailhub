@@ -126,3 +126,28 @@ $navbar-light-color: $gray;
     );
   }
 }
+
+.post-meta {
+  position: relative;
+  display: block;
+  margin-bottom: 1rem;
+
+  .posted-on {
+    @extend .small !optional;
+    @extend .text-muted !optional;
+    display: inline-block;
+    position: relative;
+    padding-left: 2rem;
+
+    ::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 1);
+      position: absolute;
+      top: 0.5rem;
+      left: 0;
+      content: "";
+    }
+  }
+}
