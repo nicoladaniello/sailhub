@@ -23,7 +23,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "reactstrap": "^8.0.0",
-    "typescript": "3.5.2"
+    "typescript": "^3.5.2"
   },
   "scripts": {
     "crabuild": "react-scripts build",

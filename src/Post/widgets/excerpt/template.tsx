@@ -3,11 +3,13 @@ import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface PostExcerptTemplateProps {
-  data: any;
+  queryResult?: any;
 }
 
-const PostExcerptTemplate: React.SFC<PostExcerptTemplateProps> = ({ data }) => {
-  const { title, date, uri, featuredImage, excerpt } = data;
+const PostExcerptTemplate: React.SFC<PostExcerptTemplateProps> = ({
+  queryResult
+}) => {
+  const { title, date, uri, featuredImage, excerpt } = queryResult.post;
 
   return (
     <Card className="cardcap">

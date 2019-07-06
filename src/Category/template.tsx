@@ -3,7 +3,7 @@ import PageSection from "../components/partials/PageSection";
 import { Row, Col } from "reactstrap";
 import RecentPostsWidget from "../Post/widgets/recentPosts";
 import Categories from "./widgets/CategoriesWidget";
-import PostExcerptTemplate from "../Post/excerpt/template";
+import PostExcerptTemplate from "../Post/widgets/excerpt/template";
 
 export interface CategoryTemplateProps {
   queryResult?: any;

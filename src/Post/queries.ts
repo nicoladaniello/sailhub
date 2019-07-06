@@ -1,128 +1,62 @@
 import gql from "graphql-tag";
+import PostFragments from "./fragments";
 
 /**
  * Get a Post data by its uri: useful for Pages
  */
 export const getPost = gql`
-  query getPost($uri: String!) {
-    postBy(uri: $uri) {
-      id
-      postId
-      title
-      excerpt
-      content
-      date
-      uri
-      author {
-        firstName
-        lastName
-        name
-      }
-      featuredImage {
-        sourceUrl
-      }
-      categories {
-        edges {
-          node {
-            id
-            categoryId
-            slug
-            name
-          }
-        }
-      }
+  query getPost($id: ID, $postId: Int, $uri: String, $slug: String) {
+    postBy(id: $id, postId: $postId, uri: $uri, slug: $slug) {
+      ...PostFull
     }
   }
+  ${PostFragments.postFull}
 `;
 
 /**
  * Get a Post excerpt data by its uri: useful for cards
  */
-export const getPostExerpt = gql`
-  query getPostExerpt($uri: String!) {
-    postBy(uri: $uri) {
-      id
-      postId
-      title
-      excerpt
-      date
-      uri
-      author {
-        name
-      }
-      featuredImage {
-        sourceUrl
-      }
+export const getPostPreview = gql`
+  query getPostPreview($id: ID, $postId: Int, $uri: String, $slug: String) {
+    postBy(id: $id, postId: $postId, uri: $uri, slug: $slug) {
+      ...PostPrevew
     }
   }
+  ${PostFragments.postPreview}
 `;
 
 /**
  * Get a Posts list: useful for lists
  */
 export const getPostList = gql`
-  query getPostList($first: Int) {
-    posts(first: $first) {
+  query getPostList(
+    $first: Int
+    $title: String
+    $dateQuery: DateQueryInput
+    $author: Int
+    $authorIn: [ID]
+    $authorNotIn: [ID]
+    $authorName: String
+    $categoryId: Int
+  ) {
+    posts(
+      first: $first
+      where: {
+        title: $title
+        dateQuery: $dateQuery
+        author: $author
+        authorIn: $authorIn
+        authorNotIn: $authorNotIn
+        authorName: $authorName
+        categoryId: $categoryId
+      }
+    ) {
       edges {
         node {
-          id
-          postId
-          title
-          excerpt
-          date
-          uri
-          author {
-            name
-          }
-          featuredImage {
-            sourceUrl
-          }
+          ...PostPrevew
         }
       }
     }
   }
-`;
-
-/**
- *
- */
-export const getPostsByCategory = gql`
-  query getPostsByCategory($catId: Int!) {
-    posts(where: { categoryId: $catId }) {
-      edges {
-        node {
-          id
-          postId
-          title
-          excerpt
-          date
-          uri
-          author {
-            name
-          }
-          featuredImage {
-            sourceUrl
-          }
-        }
-      }
-    }
-  }
-`;
-
-/**
- * Get a Posts titles list: useful for widgets
- */
-export const getPostTitleList = gql`
-  query getPostTitleList($first: Int) {
-    posts(first: $first) {
-      edges {
-        node {
-          id
-          postId
-          title
-          uri
-        }
-      }
-    }
-  }
+  ${PostFragments.postPreview}
 `;
