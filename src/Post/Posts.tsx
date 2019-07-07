@@ -2,7 +2,7 @@ import * as React from "react";
 import Query from "../components/common/Query";
 import { getPostList } from "./queries";
 
-interface Variables {
+export interface PostsVariables {
   first?: number;
   title?: string;
   dateQuery?: { year: string; month: string; day: string };
@@ -14,7 +14,7 @@ interface Variables {
 }
 
 export interface PostsProps {
-  variables: any;
+  variables: PostsVariables;
 }
 
 const Posts: React.SFC<PostsProps> = ({ variables, children }) => {

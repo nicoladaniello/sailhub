@@ -1,17 +1,16 @@
 import * as React from "react";
-import PageSection from "../components/partials/PageSection";
+import PageSection from "../../../components/partials/PageSection";
 import { Row, Col } from "reactstrap";
-import RecentPostsWidget from "./widgets/recentPosts";
-import CategoriesWidget from "../Category/widgets/CategoriesWidget";
-import PostMeta from "./partials/PostMeta";
-import PostAuthor from "./partials/PostAuthor";
+import PostListWidget from "../list";
+import PostMeta from "../../partials/PostMeta";
+import PostAuthor from "../../partials/PostAuthor";
+import CategoryListWidget from "../../../Category/widgets/list";
 
-export interface PostTemplateProps {
+export interface PostPageTemplateProps {
   post?: any;
 }
 
-const PostTemplate: React.SFC<PostTemplateProps> = ({ post }) => {
-  console.log("from PostTemplate, post: ", post);
+const PostPageTemplate: React.SFC<PostPageTemplateProps> = ({ post }) => {
   const { title, author, date, featuredImage, content, categories } = post;
   return (
     <PageSection>
@@ -37,12 +36,12 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ post }) => {
           <PostAuthor author={author} />
         </Col>
         <Col md="3">
-          <RecentPostsWidget />
-          <CategoriesWidget />
+          <PostListWidget title="Recent Posts" />
+          <CategoryListWidget title="Categories" />
         </Col>
       </Row>
     </PageSection>
   );
 };
 
-export default PostTemplate;
+export default PostPageTemplate;

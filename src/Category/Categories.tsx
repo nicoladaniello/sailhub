@@ -2,12 +2,12 @@ import * as React from "react";
 import Query from "../components/common/Query";
 import { getCategories } from "./queries";
 
-interface Variables {
+export interface CategoriesVariables {
   slug?: string;
 }
 
 export interface CategoriesProps {
-  variables?: Variables;
+  variables?: CategoriesVariables;
 }
 
 const Categories: React.SFC<CategoriesProps> = ({ variables, children }) => {

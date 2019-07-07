@@ -11,14 +11,9 @@ interface Variables {
 
 export interface PostProps {
   variables?: Variables;
-  match?: any;
 }
 
-const Post: React.SFC<PostProps> = ({ variables, match, children }) => {
-  if (!variables) {
-    variables = match.params;
-  }
-
+const Post: React.SFC<PostProps> = ({ variables, children }) => {
   const child = React.Children.only(children);
   if (!React.isValidElement(child))
     throw new Error("Category component expects a valid child element!");

@@ -18,8 +18,8 @@ const PostCarouselWidgetTemplate: React.SFC<
       <SectionHeading title={title} />
       <Row>
         {list.map(({ node: post }: any) => (
-          <Col key={post.postId} md="2" sm="3" xs="6">
-            <PostCardTemplate data={post} />
+          <Col key={post.postId} lg="2" md="4" sm="6" xs="6">
+            <PostCardTemplate post={post} />
           </Col>
         ))}
       </Row>

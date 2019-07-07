@@ -1,14 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import NavBar from "./components/Navbar";
 import HomePage from "./components/pages/home";
 import NotFound from "./components/pages/NotFound";
-import Post from "./Post/Post";
+import PostPage from "./Post/widgets/page";
 
 import "./App.scss";
-import Category from "./Category/Category";
-import PostTemplate from "./Post/template";
-import CategoryTemplate from "./Category/template";
+import CategoryPage from "./Category/widgets/page";
 
 const App: React.FC = () => {
   return (
@@ -18,22 +17,10 @@ const App: React.FC = () => {
         <Switch>
           <Route exact path="/wordpress/" component={HomePage} />
           <Route
-            path="/wordpress/blog/category/:slug"
-            render={props => (
-              <Category {...props}>
-                <CategoryTemplate />
-              </Category>
-            )}
+            path="/wordpress/blog/categories/:slug"
+            component={CategoryPage}
           />
-          <Route
-            path="/wordpress/blog/:uri"
-            render={props => (
-              <Post {...props}>
-                <PostTemplate />
-              </Post>
-            )}
-          />
-          {/* <Route path="/wordpress/:slug" component={Page} /> */}
+          <Route path="/wordpress/blog/:uri" component={PostPage} />
           <Route render={props => <NotFound {...props} />} />
         </Switch>
       </BrowserRouter>

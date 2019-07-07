@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import PostFragments from "../Post/queries/fragments";
+import PostFragments from "../../Post/queries/fragments";
 
 export const getCategories = gql`
   query GET_CATEGORIES {

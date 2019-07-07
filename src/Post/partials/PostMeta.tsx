@@ -14,7 +14,7 @@ const PostMeta: React.SFC<PostMetaProps> = ({ date, categories }) => {
         <Badge key={category.categoryId} color="light" className="badge-pill">
           <Link
             className="text-primary"
-            to={`/wordpress/blog/category/${category.slug}`}
+            to={`/wordpress/blog/categories/${category.slug}`}
           >
             {category.name}
           </Link>
