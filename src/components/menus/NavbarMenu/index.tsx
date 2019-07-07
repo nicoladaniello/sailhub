@@ -8,7 +8,9 @@ export interface NavbarMenuProps {}
 const NavbarMenu: React.SFC<NavbarMenuProps> = () => {
   return (
     <Query query={getNavbarMenus}>
-      <NavbarMenuTemplate />
+      {(data: any) => {
+        return <NavbarMenuTemplate menu={data.menus.nodes[0]} />;
+      }}
     </Query>
   );
 };

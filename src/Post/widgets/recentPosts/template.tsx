@@ -3,13 +3,13 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface RecentPostsWidgetTemplateProps {
-  queryResult?: any;
+  posts?: any;
 }
 
 const RecentPostsWidgetTemplate: React.SFC<RecentPostsWidgetTemplateProps> = ({
-  queryResult
+  posts
 }) => {
-  const { edges: list } = queryResult.posts;
+  const { edges: list } = posts;
   return (
     <ListGroup>
       <div>

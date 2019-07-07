@@ -2,14 +2,12 @@ import * as React from "react";
 import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 import { Link } from "react-router-dom";
 
-export interface PostExcerptTemplateProps {
-  queryResult?: any;
+export interface PostPreviewTemplateProps {
+  post?: any;
 }
 
-const PostExcerptTemplate: React.SFC<PostExcerptTemplateProps> = ({
-  queryResult
-}) => {
-  const { title, date, uri, featuredImage, excerpt } = queryResult.post;
+const PostPreviewTemplate: React.SFC<PostPreviewTemplateProps> = ({ post }) => {
+  const { title, date, uri, featuredImage, excerpt } = post;
 
   return (
     <Card className="cardcap">
@@ -34,4 +32,4 @@ const PostExcerptTemplate: React.SFC<PostExcerptTemplateProps> = ({
   );
 };
 
-export default PostExcerptTemplate;
+export default PostPreviewTemplate;

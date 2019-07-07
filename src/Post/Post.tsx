@@ -14,21 +14,18 @@ export interface PostProps {
   match?: any;
 }
 
-/**
- * Gives a queryResult containing a post to the props of a given child element;
- * The variables to query the post can be passed by props.variables or props.match.params (react-router);
- *
- */
 const Post: React.SFC<PostProps> = ({ variables, match, children }) => {
   if (!variables) {
     variables = match.params;
   }
 
   const child = React.Children.only(children);
+  if (!React.isValidElement(child))
+    throw new Error("Category component expects a valid child element!");
 
   return (
     <Query query={getPost} variables={variables}>
-      {child}
+      {(data: any) => React.cloneElement(child, { post: data.postBy })}
     </Query>
   );
 };

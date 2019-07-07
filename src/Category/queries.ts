@@ -1,4 +1,5 @@
 import gql from "graphql-tag";
+import PostFragments from "../Post/queries/fragments";
 
 export const getCategories = gql`
   query GET_CATEGORIES {
@@ -15,8 +16,8 @@ export const getCategories = gql`
   }
 `;
 
-export const getCategoryPosts = gql`
-  query GET_CATEGORY_POSTS($slug: [String]) {
+export const getCategory = gql`
+  query getCategory($slug: [String]) {
     categories(where: { slug: $slug }) {
       edges {
         node {
@@ -26,18 +27,12 @@ export const getCategoryPosts = gql`
           slug
           posts {
             nodes {
-              id
-              title
-              date
-              uri
-              excerpt
-              featuredImage {
-                sourceUrl
-              }
+              ...PostPrevew
             }
           }
         }
       }
     }
   }
+  ${PostFragments.postPreview}
 `;

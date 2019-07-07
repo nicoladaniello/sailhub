@@ -8,7 +8,9 @@ export interface HomeHeaderProps {}
 const HomeHeader: React.SFC<HomeHeaderProps> = () => {
   return (
     <Query query={getGeneralSettings}>
-      <HomeHeaderTemplate />
+      {(data: any) => (
+        <HomeHeaderTemplate generalSettings={data.generalSettings} />
+      )}
     </Query>
   );
 };

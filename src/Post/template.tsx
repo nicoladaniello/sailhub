@@ -2,23 +2,17 @@ import * as React from "react";
 import PageSection from "../components/partials/PageSection";
 import { Row, Col } from "reactstrap";
 import RecentPostsWidget from "./widgets/recentPosts";
-import Categories from "../Category/widgets/CategoriesWidget";
+import CategoriesWidget from "../Category/widgets/CategoriesWidget";
 import PostMeta from "./partials/PostMeta";
 import PostAuthor from "./partials/PostAuthor";
 
 export interface PostTemplateProps {
-  queryResult?: any;
+  post?: any;
 }
 
-const PostTemplate: React.SFC<PostTemplateProps> = ({ queryResult }) => {
-  const {
-    title,
-    author,
-    date,
-    featuredImage,
-    content,
-    categories
-  } = queryResult.postBy;
+const PostTemplate: React.SFC<PostTemplateProps> = ({ post }) => {
+  console.log("from PostTemplate, post: ", post);
+  const { title, author, date, featuredImage, content, categories } = post;
   return (
     <PageSection>
       <figure>
@@ -44,7 +38,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ queryResult }) => {
         </Col>
         <Col md="3">
           <RecentPostsWidget />
-          <Categories />
+          <CategoriesWidget />
         </Col>
       </Row>
     </PageSection>

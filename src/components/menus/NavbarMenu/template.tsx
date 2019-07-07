@@ -3,13 +3,10 @@ import { Nav, NavItem, NavLink } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface NavbarMenuTemplateProps {
-  queryResult?: any;
+  menu?: any;
 }
 
-const NavbarMenuTemplate: React.SFC<NavbarMenuTemplateProps> = ({
-  queryResult
-}) => {
-  const menu = queryResult.menus.nodes[0];
+const NavbarMenuTemplate: React.SFC<NavbarMenuTemplateProps> = ({ menu }) => {
   return (
     <Nav key={menu.menuId} className="ml-auto" navbar>
       {menu.menuItems.edges.map((menuItem: any) => (

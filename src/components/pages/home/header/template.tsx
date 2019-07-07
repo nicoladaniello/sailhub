@@ -1,15 +1,18 @@
 import React from "react";
 import PageHeader from "../../../partials/PageHeader";
 import HeroImg from "../../../../images/hero.jpg";
+import { Alert } from "reactstrap";
 
 export interface HomeHeaderTemplateProps {
-  queryResult?: any;
+  generalSettings: any;
 }
 
 const HomeHeaderTemplate: React.SFC<HomeHeaderTemplateProps> = ({
-  queryResult
+  generalSettings
 }) => {
-  const { title, description } = queryResult.generalSettings;
+  if (!generalSettings)
+    return <Alert color="warning">Could't load general settings.</Alert>;
+  const { title, description } = generalSettings;
   return (
     <PageHeader img={HeroImg}>
       <div className="w-100 text-center text-white">

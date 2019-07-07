@@ -16,18 +16,16 @@ const Query: React.SFC<QueryProps> = ({ query, variables, children }) => {
   return (
     <ApolloQuery query={query} variables={variables}>
       {({ data, loading, error }: QueryResult) => {
-        const child = React.Children.only(children);
-        if (!React.isValidElement(child))
-          throw new Error(
-            "Error: Query requires a single valid element as child!"
-          );
-        if (error) {
-          console.error(error);
-          return <Alert color="danger">An error occurred!</Alert>;
-        }
+        if (error)
+          return <Alert color="danger">Sorry, {error.message} occured</Alert>;
         if (loading) return <Spinner />;
-        if (!data) return;
-        return React.cloneElement(child, { queryResult: data });
+        if (!data) return <Alert color="warning">Data is empty.</Alert>;
+
+        if (!(typeof children === "function"))
+          throw new Error("Query expects a function as a child!");
+
+        // return null;
+        return children(data);
       }}
     </ApolloQuery>
   );

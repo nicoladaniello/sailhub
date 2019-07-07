@@ -3,19 +3,18 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface CategoriesTemplateProps {
-  queryResult?: any;
+  categories?: any;
 }
 
 const CategoriesTemplate: React.SFC<CategoriesTemplateProps> = ({
-  queryResult
+  categories
 }) => {
-  const { edges: list } = queryResult.categories;
   return (
     <ListGroup>
       <div>
         <p>Categories</p>
       </div>
-      {list.map(({ node: category }: any) => (
+      {categories.edges.map(({ node: category }: any) => (
         <ListGroupItem key={category.categoryId}>
           <Link to={`/wordpress/blog/category/${category.slug}`}>
             {category.name}

@@ -6,7 +6,6 @@ export interface NotFoundProps {
 }
 
 const NotFound: React.SFC<NotFoundProps> = props => {
-  console.log(props);
   return <p>Not Found!</p>;
 };
 

@@ -19,10 +19,12 @@ export interface PostsProps {
 
 const Posts: React.SFC<PostsProps> = ({ variables, children }) => {
   const child = React.Children.only(children);
+  if (!React.isValidElement(child))
+    throw new Error("Category component expects a valid child element!");
 
   return (
     <Query query={getPostList} variables={variables}>
-      {child}
+      {(data: any) => React.cloneElement(child, { posts: data.posts })}
     </Query>
   );
 };

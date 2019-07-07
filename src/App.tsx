@@ -6,8 +6,9 @@ import NotFound from "./components/pages/NotFound";
 import Post from "./Post/Post";
 
 import "./App.scss";
-import Category from "./Category";
+import Category from "./Category/Category";
 import PostTemplate from "./Post/template";
+import CategoryTemplate from "./Category/template";
 
 const App: React.FC = () => {
   return (
@@ -16,7 +17,14 @@ const App: React.FC = () => {
         <NavBar />
         <Switch>
           <Route exact path="/wordpress/" component={HomePage} />
-          <Route path="/wordpress/blog/category/:uri" component={Category} />
+          <Route
+            path="/wordpress/blog/category/:slug"
+            render={props => (
+              <Category {...props}>
+                <CategoryTemplate />
+              </Category>
+            )}
+          />
           <Route
             path="/wordpress/blog/:uri"
             render={props => (

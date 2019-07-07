@@ -3,16 +3,14 @@ import PageSection from "../components/partials/PageSection";
 import { Row, Col } from "reactstrap";
 import RecentPostsWidget from "../Post/widgets/recentPosts";
 import Categories from "./widgets/CategoriesWidget";
-import PostExcerptTemplate from "../Post/widgets/excerpt/template";
+import PostPreviewTemplate from "../Post/widgets/preview/template";
 
 export interface CategoryTemplateProps {
-  queryResult?: any;
+  category?: any;
 }
 
-const CategoryTemplate: React.SFC<CategoryTemplateProps> = ({
-  queryResult
-}) => {
-  const { name, posts } = queryResult.categories.edges[0].node;
+const CategoryTemplate: React.SFC<CategoryTemplateProps> = ({ category }) => {
+  const { name, posts } = category;
 
   return (
     <PageSection>
@@ -23,7 +21,7 @@ const CategoryTemplate: React.SFC<CategoryTemplateProps> = ({
       <Row className="justify-content-center">
         <Col md="8" sm="8" xs="12">
           {posts.nodes.map((post: any, i: any) => (
-            <PostExcerptTemplate key={i} data={post} />
+            <PostPreviewTemplate key={i} post={post} />
           ))}
         </Col>
         <Col md="4">

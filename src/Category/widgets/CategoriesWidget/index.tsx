@@ -1,16 +1,15 @@
 import * as React from "react";
-import Query from "../../../components/common/Query";
 import CategoriesTemplate from "./template";
-import { getCategories } from "../../queries";
+import Categories from "../../Categories";
 
-export interface CategoriesProps {}
+export interface CategoriesWidgetProps {}
 
-const Categories: React.SFC<CategoriesProps> = () => {
+const CategoriesWidget: React.SFC<CategoriesWidgetProps> = () => {
   return (
-    <Query query={getCategories}>
+    <Categories>
       <CategoriesTemplate />
-    </Query>
+    </Categories>
   );
 };
 
-export default Categories;
+export default CategoriesWidget;
