@@ -4,10 +4,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import HomePage from "./components/pages/home";
 import NotFound from "./components/pages/NotFound";
-import PostPage from "./Post/widgets/page";
+import PostPage from "./components/Post/widgets/page";
 
 import "./App.scss";
-import CategoryPage from "./Category/widgets/page";
+import CategoryPage from "./components/Category/widgets/page";
 
 const App: React.FC = () => {
   return (

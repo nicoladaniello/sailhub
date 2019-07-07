@@ -1,6 +1,6 @@
 import * as React from "react";
-import PageSection from "../../../components/partials/PageSection";
-import SectionHeading from "../../../components/partials/SectionHeading";
+import PageSection from "../../../partials/PageSection";
+import SectionHeading from "../../../partials/SectionHeading";
 import PostCardTemplate from "../card/template";
 import { Row, Col } from "reactstrap";
 

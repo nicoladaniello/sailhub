@@ -9,7 +9,7 @@ import {
   faShip,
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
-import PostCarouselWidget from "../../../Post/widgets/carousel";
+import PostCarouselWidget from "../../Post/widgets/carousel";
 
 library.add(faMapMarkerAlt, faStar, faStarHalf, faShip, faCheck);
 

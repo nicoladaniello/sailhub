@@ -1,5 +1,5 @@
 import * as React from "react";
-import Query from "../components/common/Query";
+import Query from "../common/Query";
 import { getPostList } from "./queries";
 
 export interface PostsVariables {

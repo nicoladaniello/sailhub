@@ -1,6 +1,6 @@
 import * as React from "react";
 import { getPost } from "./queries";
-import Query from "../components/common/Query";
+import Query from "../common/Query";
 
 interface Variables {
   id?: string;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import PageSection from "../../../components/partials/PageSection";
+import PageSection from "../../../partials/PageSection";
 import { Row, Col } from "reactstrap";
 import PostListWidget from "../../../Post/widgets/list";
 import PostPreviewTemplate from "../../../Post/widgets/preview/template";
