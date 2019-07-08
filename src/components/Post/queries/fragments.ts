@@ -1,15 +1,15 @@
 import gql from "graphql-tag";
+import UserFragments from "../../User/queries/fragments";
 
 const postFragments: any = {};
 
 postFragments.author = gql`
   fragment Author on Post {
     author {
-      firstName
-      lastName
-      name
+      ...UserProfile
     }
   }
+  ${UserFragments.profile}
 `;
 postFragments.featuredImage = gql`
   fragment FeaturedImage on Post {

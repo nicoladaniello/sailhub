@@ -9,7 +9,7 @@ export interface PostCardTemplateProps {
 const PostCardTemplate: React.SFC<PostCardTemplateProps> = ({ post }) => {
   const { title, date, uri, featuredImage } = post;
   return (
-    <Card className="cardcap">
+    <Card className="cardcap mb-4">
       {featuredImage && (
         <CardImg
           top

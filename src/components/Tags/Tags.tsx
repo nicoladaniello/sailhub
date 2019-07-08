@@ -17,9 +17,7 @@ const Tags: React.SFC<TagsProps> = ({ variables, children }) => {
 
   return (
     <Query query={getTags} variables={variables}>
-      {(data: any) =>
-        React.cloneElement(child, { categories: data.categories })
-      }
+      {(data: any) => React.cloneElement(child, { tags: data.tags })}
     </Query>
   );
 };

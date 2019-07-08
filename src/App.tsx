@@ -9,6 +9,7 @@ import CategoryPage from "./components/Category/widgets/page";
 import TagPage from "./components/Tags/widgets/page";
 
 import "./App.scss";
+import UsersPage from "./components/User/widgets/page";
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="/wordpress/blog/tagged/:slug" component={TagPage} />
           <Route path="/wordpress/blog/:uri" component={PostPage} />
           <Route exact path="/wordpress/" component={HomePage} />
+          <Route path="/wordpress/users/" component={UsersPage} />
           <Route render={props => <NotFound {...props} />} />
         </Switch>
       </BrowserRouter>

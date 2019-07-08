@@ -18,13 +18,18 @@ UserFragments.avatar = gql`
 `;
 
 UserFragments.profile = gql`
-    Fragment UserProfile on User {
-        id
-        userId
-        name
-        ...UserAvatar
-    }
-    ${UserFragments.avatar}
+  fragment UserProfile on User {
+    id
+    userId
+    name
+    firstName
+    lastName
+    nicename
+    description
+    registeredDate
+    ...UserAvatar
+  }
+  ${UserFragments.avatar}
 `;
 
 export default UserFragments;
