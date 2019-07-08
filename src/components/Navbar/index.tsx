@@ -18,6 +18,7 @@ import {
   InputGroupAddon
 } from "reactstrap";
 import NavbarMenu from "../menus/NavbarMenu/index";
+import { Link } from "react-router-dom";
 
 export interface NavBarProps {}
 
@@ -39,7 +40,7 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
   render() {
     return (
       <Navbar color="white" light expand="md">
-        <NavbarBrand href="/wordpress/">
+        <NavbarBrand tag={Link} to="/wordpress/">
           SailHub <span className="text-primary">Sardinia</span>
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
