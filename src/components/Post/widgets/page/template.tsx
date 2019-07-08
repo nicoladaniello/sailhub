@@ -5,13 +5,22 @@ import PostListWidget from "../list";
 import PostMeta from "../../partials/PostMeta";
 import PostAuthor from "../../partials/PostAuthor";
 import CategoryListWidget from "../../../Category/widgets/list";
+import TagListTemplate from "../../../Tags/widgets/list/template";
 
 export interface PostPageTemplateProps {
   post?: any;
 }
 
 const PostPageTemplate: React.SFC<PostPageTemplateProps> = ({ post }) => {
-  const { title, author, date, featuredImage, content, categories } = post;
+  const {
+    title,
+    author,
+    date,
+    featuredImage,
+    content,
+    categories,
+    tags
+  } = post;
   return (
     <PageSection>
       <figure>
@@ -36,6 +45,7 @@ const PostPageTemplate: React.SFC<PostPageTemplateProps> = ({ post }) => {
           <PostAuthor author={author} />
         </Col>
         <Col md="3">
+          <TagListTemplate tags={tags} title="Tags" />
           <PostListWidget title="Recent Posts" />
           <CategoryListWidget title="Categories" />
         </Col>

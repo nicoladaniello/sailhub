@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { ListGroup, ListGroupItem, Card, CardHeader } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface CategoryListWidgetTemplateProps {
@@ -12,20 +12,20 @@ const CategoryListWidgetTemplate: React.SFC<
 > = ({ title, categories }) => {
   const { edges: list } = categories;
   return (
-    <ListGroup>
-      <div>
-        <p>{title}</p>
-      </div>
-      {list.map(({ node: category }: any) => (
-        <ListGroupItem
-          key={category.categoryId}
-          tag={Link}
-          to={`/wordpress/blog/categories/${category.slug}`}
-        >
-          {category.name}
-        </ListGroupItem>
-      ))}
-    </ListGroup>
+    <Card className="mb-4">
+      <CardHeader>{title}</CardHeader>
+      <ListGroup flush>
+        {list.map(({ node: category }: any) => (
+          <ListGroupItem
+            key={category.categoryId}
+            tag={Link}
+            to={`/wordpress/blog/categories/${category.slug}`}
+          >
+            {category.name}
+          </ListGroupItem>
+        ))}
+      </ListGroup>
+    </Card>
   );
 };
 

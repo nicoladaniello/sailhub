@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { ListGroup, ListGroupItem, Card, CardHeader } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export interface PostListWidgetTemplateProps {
@@ -13,20 +13,20 @@ const PostListWidgetTemplate: React.SFC<PostListWidgetTemplateProps> = ({
 }) => {
   const { edges: list } = posts;
   return (
-    <ListGroup>
-      <div>
-        <p>{title}</p>
-      </div>
-      {list.map(({ node: post }: any) => (
-        <ListGroupItem
-          key={post.postId}
-          tag={Link}
-          to={`/wordpress/blog/${post.uri}`}
-        >
-          {post.title}
-        </ListGroupItem>
-      ))}
-    </ListGroup>
+    <Card className="mb-4">
+      <CardHeader>{title}</CardHeader>
+      <ListGroup flush>
+        {list.map(({ node: post }: any) => (
+          <ListGroupItem
+            key={post.postId}
+            tag={Link}
+            to={`/wordpress/blog/${post.uri}`}
+          >
+            {post.title}
+          </ListGroupItem>
+        ))}
+      </ListGroup>
+    </Card>
   );
 };
 

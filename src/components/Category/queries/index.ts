@@ -26,8 +26,10 @@ export const getCategory = gql`
           name
           slug
           posts {
-            nodes {
-              ...PostPrevew
+            edges {
+              node {
+                ...PostPreview
+              }
             }
           }
         }

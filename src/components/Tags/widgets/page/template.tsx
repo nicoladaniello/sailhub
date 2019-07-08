@@ -1,23 +1,22 @@
 import * as React from "react";
 import PageSection from "../../../partials/PageSection";
 import { Row, Col } from "reactstrap";
-import PostListWidget from "../../../Post/widgets/list";
 import PostPreviewTemplate from "../../../Post/widgets/preview/template";
-import CategoryListWidget from "../list";
+import PostListWidget from "../../../Post/widgets/list";
+import CategoryListWidget from "../../../Category/widgets/list";
 
-export interface CategoryPageTemplateProps {
-  category?: any;
+export interface TagPageTemplateProps {
+  tag?: any;
 }
 
-const CategoryPageTemplate: React.SFC<CategoryPageTemplateProps> = ({
-  category
-}) => {
-  const { name, posts } = category;
-
+const TagPageTemplate: React.SFC<TagPageTemplateProps> = ({ tag }) => {
+  const { name, posts } = tag;
   return (
     <PageSection>
       <div>
-        <h1>Posts in category {name}</h1>
+        <h1>
+          Posts tagged <span className="text-secondary">{name}</span>
+        </h1>
       </div>
       <hr />
       <Row className="justify-content-center">
@@ -35,4 +34,4 @@ const CategoryPageTemplate: React.SFC<CategoryPageTemplateProps> = ({
   );
 };
 
-export default CategoryPageTemplate;
+export default TagPageTemplate;

@@ -19,7 +19,7 @@ export const getPost = gql`
 export const getPostPreview = gql`
   query getPostPreview($id: ID, $postId: Int, $uri: String, $slug: String) {
     postBy(id: $id, postId: $postId, uri: $uri, slug: $slug) {
-      ...PostPrevew
+      ...PostPreview
     }
   }
   ${PostFragments.postPreview}
@@ -53,7 +53,7 @@ export const getPostList = gql`
     ) {
       edges {
         node {
-          ...PostPrevew
+          ...PostPreview
         }
       }
     }

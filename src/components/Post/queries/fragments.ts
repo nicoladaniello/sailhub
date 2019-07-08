@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-const fragments: any = {};
+const postFragments: any = {};
 
-fragments.author = gql`
+postFragments.author = gql`
   fragment Author on Post {
     author {
       firstName
@@ -11,14 +11,14 @@ fragments.author = gql`
     }
   }
 `;
-fragments.featuredImage = gql`
+postFragments.featuredImage = gql`
   fragment FeaturedImage on Post {
     featuredImage {
       sourceUrl
     }
   }
 `;
-fragments.categories = gql`
+postFragments.categories = gql`
   fragment Categories on Post {
     categories {
       edges {
@@ -32,9 +32,22 @@ fragments.categories = gql`
     }
   }
 `;
-
-fragments.postPreview = gql`
-  fragment PostPrevew on Post {
+postFragments.tags = gql`
+  fragment Tags on Post {
+    tags {
+      edges {
+        node {
+          id
+          tagId
+          slug
+          name
+        }
+      }
+    }
+  }
+`;
+postFragments.postPreview = gql`
+  fragment PostPreview on Post {
     id
     postId
     title
@@ -44,10 +57,10 @@ fragments.postPreview = gql`
     ...Author
     ...FeaturedImage
   }
-  ${fragments.author}, ${fragments.featuredImage}
+  ${postFragments.author}, ${postFragments.featuredImage}
 `;
 
-fragments.postFull = gql`
+postFragments.postFull = gql`
   fragment PostFull on Post {
     id
     postId
@@ -58,8 +71,10 @@ fragments.postFull = gql`
     ...Author
     ...FeaturedImage
     ...Categories
+    ...Tags
   }
-  ${fragments.author}, ${fragments.featuredImage}, ${fragments.categories}
+  ${postFragments.author}, ${postFragments.featuredImage},
+  ${postFragments.categories}, ${postFragments.tags}
 `;
 
-export default fragments;
+export default postFragments;
